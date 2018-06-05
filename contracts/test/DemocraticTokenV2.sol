@@ -1,8 +1,8 @@
 pragma solidity ^0.4.23;
 
-import "../statutory/UpgradingProposal.sol";
+import "../statutory/DemocraticUpgrading.sol";
 
-contract DemTokenV2 is  UpgradingProposal {
+contract DemTokenV2 is  DemocraticUpgrading {
     constructor() public {
 
     }

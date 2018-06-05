@@ -2,7 +2,7 @@ pragma solidity ^0.4.23;
 
 import "statutory-voting/contracts/proposals/SimpleProposal.sol";
 
-contract UpgradingProposal is SimpleProposal {
+contract DemocraticUpgrading is SimpleProposal {
 
     bytes32 private constant implementationPosition = keccak256("democratic.proxy.contract.position");
 
