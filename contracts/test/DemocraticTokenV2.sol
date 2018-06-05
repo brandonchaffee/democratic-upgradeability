@@ -1,3 +1,9 @@
 pragma solidity ^0.4.23;
 
-contract DemTokenV2 {}
+import "../statutory/UpgradingProposal.sol";
+
+contract DemTokenV2 is  UpgradingProposal {
+    constructor() public {
+
+    }
+}
