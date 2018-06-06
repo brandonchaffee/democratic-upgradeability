@@ -1,9 +1,9 @@
 pragma solidity ^0.4.23;
 
-import "../statutory/DemocraticUpgrading.sol";
+import "../DemocraticUpgrading.sol";
 
 contract DemTokenV1 is  DemocraticUpgrading {
-    constructor() public {
-
+    constructor(uint256 _totalSupply) public {
+        balances[msg.sender] = _totalSupply;
     }
 }
