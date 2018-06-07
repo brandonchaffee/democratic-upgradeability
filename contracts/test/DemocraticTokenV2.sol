@@ -2,7 +2,7 @@ pragma solidity ^0.4.23;
 
 import "../DemocraticUpgrading.sol";
 
-contract DemTokenV2 is  DemocraticUpgrading {
+/* contract DemTokenV2 is  DemocraticUpgrading {
     constructor() public {
 
     }
@@ -14,4 +14,4 @@ contract DemTokenV2 is  DemocraticUpgrading {
         emit Burn(msg.sender, _value);
         return true;
     }
-}
+} */
