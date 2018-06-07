@@ -12,4 +12,11 @@ contract InitializedProxy is Proxy {
             sstore(position, _initialContract)
         }
     }
+
+    function implementation() public view returns (address impl) {
+        bytes32 position = implementationPosition;
+        assembly {
+          impl := sload(position)
+        }
+      }
 }
