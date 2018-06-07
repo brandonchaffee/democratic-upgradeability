@@ -37,7 +37,6 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "openzeppelin-solidity": "^1.9.0",
-    "solium": "^1.1.7",
-    "statutory-voting": "^1.1.1"
+    "solium": "^1.1.7"
   }
 }
