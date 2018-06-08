@@ -1,11 +1,11 @@
 import assertRevert from '../helpers/assertRevert'
 import { increaseTimeTo } from '../helpers/increaseTime'
 
-function shouldBehaveLikeGeneric (payload, votingWindow, supply, accounts) {
+function shouldBehaveLikeGeneric (details, votingWindow, supply, accounts) {
   describe('Generic Proposal', function () {
     beforeEach(async function () {
       await this.token.initialize(supply, votingWindow)
-      await this.token.createProposal(...payload[0])
+      await this.token.createProposal(this.V2Behavior.address, details[0])
     })
 
     describe('Voting', function () {
@@ -72,7 +72,7 @@ function shouldBehaveLikeGeneric (payload, votingWindow, supply, accounts) {
       it('decrements votes when unblocked', async function () {
         const balance = await this.token.balanceOf(accounts[1])
 
-        await this.token.createProposal(...payload[1])
+        await this.token.createProposal(this.V3Behavior.address, details[1])
         await this.token.voteOnProposal(0, true, {from: accounts[1]})
         await this.token.voteOnProposal(1, false, {from: accounts[1]})
         let ProposalOne = await this.token.proposals(0)

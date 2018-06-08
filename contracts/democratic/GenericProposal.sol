@@ -67,14 +67,4 @@ contract GenericProposal is BlockableTransfer {
         p.isValid = p.yesTotal > p.noTotal;
         inVote[msg.sender].push(_id);
     }
-
-    function confirmProposal(uint256 _id) public {
-        Proposal storage p = proposals[_id];
-        require(now > p.windowEnd);
-        require(p.isValid);
-        require(!p.hasBeenApproved);
-        p.hasBeenApproved = true;
-    }
-
-
 }
