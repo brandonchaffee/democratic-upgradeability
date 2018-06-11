@@ -1,8 +1,9 @@
 pragma solidity ^0.4.23;
 
 import "../democratic/DemocraticUpgrading.sol";
+import "../democratic/WindowedMajority.sol";
 
-contract DemTokenV3 is  DemocraticUpgrading {
+contract DemTokenV3 is  DemocraticUpgrading, WindowedMajority {
     bool internal _initialized;
 
     function initialize(uint256 _supply, uint256 _window) public {

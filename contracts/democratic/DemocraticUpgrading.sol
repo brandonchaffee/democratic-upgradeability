@@ -7,7 +7,7 @@ contract DemocraticUpgrading is GenericProposal {
 
     function confirmProposal(uint256 _id) public {
         Proposal storage p = proposals[_id];
-        require(now > p.windowEnd);
+        require(now >= p.windowEnd);
         require(p.isValid);
         require(!p.hasBeenApproved);
         p.hasBeenApproved = true;
