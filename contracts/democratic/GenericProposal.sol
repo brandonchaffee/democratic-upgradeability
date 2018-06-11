@@ -33,6 +33,23 @@ contract GenericProposal is BlockableTransfer {
         return _id;
     }
 
+    function accountVotes(uint256 _id, bool _approve) public {
+        Proposal storage p = proposals[_id];
+        if(_approve){
+            p.yesTotal -= p.yesVotesOf[msg.sender];
+            p.noTotal -= p.noVotesOf[msg.sender];
+            p.noVotesOf[msg.sender] = 0;
+            p.yesVotesOf[msg.sender] = balances[msg.sender];
+            p.yesTotal += balances[msg.sender];
+        } else {
+            p.noTotal -= p.noVotesOf[msg.sender];
+            p.yesTotal -= p.yesVotesOf[msg.sender];
+            p.yesVotesOf[msg.sender] = 0;
+            p.noVotesOf[msg.sender] = balances[msg.sender];
+            p.noTotal += balances[msg.sender];
+        }
+    }
+
     function unblockTransfer() public {
         for(uint i=0; i < inVote[msg.sender].length; i++){
             Proposal storage p = proposals[i];
